@@ -1,0 +1,116 @@
+mixin headerMenuLink(title, href="#")
+	li.header-menu-item 
+		a.header-menu-link(href= href)= title
+
+mixin headerMenuIcon(icon, href="#")
+	li.header-menu-item 
+		a.header-menu-icon(href= href) 
+			i(class=icon)
+
+mixin headerBottomItem(number, text, activeClass)
+	if activeClass 
+		.header-bottom-item.is-active 
+			span.header-bottom-number= number 
+			span.header-bottom-text= text
+	if !activeClass
+		.header-bottom-item 
+			span.header-bottom-number= number 
+			span.header-bottom-text= text
+
+mixin blockBox(caption, title, desc)
+	.block-box
+		h3.block-box-caption= caption 
+		h2.block-box-heading= title 
+		if desc 
+			p.block-box-desc= desc 
+
+mixin aboutItem(src, iconClass, title, alt="aboutItem")
+	.about-item 
+		img.about-img(src= src, alt= alt)
+		.about-content 
+			i.about-icon(class= iconClass) 
+			span.about-title= title
+
+mixin numberItem(number, title)
+	.number-item 
+		h4.number-item-count= number
+		h5.number-item-title= title
+
+mixin serviceItem(srcImg, altImg, title, desc)
+	.service-item 
+		img(src=srcImg, alt=altImg).service-item-img
+		.service-item-info 
+			h5.service-item-title=title 
+			p.service-item-desc= desc  
+			
+mixin wedoItem(srcIcon, title, content, activeClass= "", angleUp= "fa-angle-down")
+	.wedo-item(class= activeClass)
+		.wedo-item-header
+			img.wedo-item-icon(src= srcIcon alt="wedo icon")
+			h4.wedo-item-title= title
+			i.fal.wedo-item-arrow(class=angleUp)
+		.wedo-item-content
+			p.wedo-item-text= content
+mixin teamSocial(facebook= "#", twitter= "#", pinterest= "#", instagram= "#")
+	ul.team-social 
+		li.team-social-item 
+			a.team-social-link(href= facebook) 
+				i.fab.fa-facebook-f
+		li.team-social-item 
+			a.team-social-link(href= twitter) 
+				i.fab.fa-twitter
+		li.team-social-item 
+			a.team-social-link(href= pinterest) 
+				i.fab.fa-pinterest
+		li.team-social-item 
+			a.team-social-link(href= instagram) 
+				i.fab.fa-instagram
+
+mixin teamItem(src, name, position)
+	.team-item 
+		.team-main 
+			img.team-img(src= src, alt="#")
+			.team-content 
+				if block 
+					block
+		.team-info 
+			h3.team-name= name 
+			span.team-position= position
+
+mixin peopleItem(src= "images/img-people1.png", name= "Hai", job = "Dev", desc="heyyyyy")
+	.people-item
+		img.people-img(src= src, alt="alt")
+		.people-info
+			h3.people-name= name 
+			span.people-job.text= job 
+			p.people-desc.text= desc
+
+mixin storyItem(src="images/img-blog1.png", number= 01, text="Jan", title= "Lorem", desc,views= 1000, comments= 1000)
+	.story-item
+		.story-media
+			img(src= src).story-img
+			.story-date
+				span.story-date-number= number 
+				span.story-date-text.text= text 
+		.story-bottom 
+			.story-content
+				h3.story-title= title
+				p.story-desc= desc
+			.story-meta 
+				.story-meta-item 
+					i.fa.fa-eye.story-meta-icon 
+					span.story-meta-number.text= views
+				.story-meta-item 
+					i.fa.fa-comment.story-meta-icon 
+					span.story-meta-number.text= comments
+
+mixin quoteContent(src= "images/img-quote.png", icon= true, desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur fugit similique aspernatur iusto vel sunt sit quidem dolores tempore, voluptatum quasi est doloremque asperiores velit suscipit soluta nostrum quisquam corporis.", author= "Jon Doe")
+	.quote-content
+		if icon == true 
+			img.quote-icon(src= src, alt="quote img")
+		else
+			img.quote-img(src= src, alt="quote img")
+		.quote-info 
+			p.quote-desc= desc 
+			span.quote-author= author
+        

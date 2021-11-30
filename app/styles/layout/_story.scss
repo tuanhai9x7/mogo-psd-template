@@ -1,0 +1,118 @@
+.story {
+  --heightImg: 24rem;
+  padding: 11rem 0;
+  &-list {
+    margin-top: 5rem;
+    @include flexbox(stretch, space-between, row, flex, wrap);
+  }
+  &-item {
+    width: calc(33.33% - 2rem);
+  }
+  &-media {
+    position: relative;
+  }
+  &-img {
+    @include size(100%, var(--heightImg));
+    object-fit: cover;
+  }
+  &-date {
+    @include flexbox(center, space-between, column);
+    padding: 1.5rem;
+    background-color: $third-color;
+    color: #fff;
+    position: absolute;
+    bottom: 1rem;
+    left: -1rem;
+    z-index: 2;
+    &-number {
+      font-size: 3rem;
+      font-weight: bold;
+      background: 1rem;
+    }
+  }
+
+  &-bottom {
+    height: calc(100% - var(--heightImg));
+    @include flexbox(start, space-between, column);
+  }
+  &-content {
+    flex: 1;
+    padding-bottom: 2rem;
+    margin: 1.5rem 0 2rem;
+    border-bottom: 1px solid $border-gray-color;
+  }
+  &-title {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    @include textClamp(2);
+  }
+  &-desc {
+    font-size: 1.5rem;
+    font-family: $secondary-font;
+    line-height: 1.4;
+    color: $text-color;
+  }
+  &-meta {
+    @include flexbox(center);
+    &-item {
+      margin-right: 2rem;
+    }
+    &-icon {
+      color: $third-color;
+      margin-right: 5px;
+      font-size: 1.5rem;
+    }
+    &-number {
+      color: $text-color;
+    }
+  }
+  @include maxWidth(1023px){
+    padding: 5rem 0;
+    --heightImg: 16rem;
+    &-date{
+      padding: 1rem;
+      &-number{
+        font-size: 2rem;
+      }
+    }
+    &-content{
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+  @include maxWidth(767px){
+    --heightImg: 24rem;
+    padding-bottom: 2rem;
+    &-item{
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+    &-date{
+      bottom: 0.5rem;
+      left: -0.5rem;
+    }
+  }
+}
+
+.map{
+  padding: 6rem 0;
+  background: linear-gradient(rgba(white, 0.8)) , url("../images/img-map.png") no-repeat center / cover;
+  &-container{
+    text-align: center;
+  }
+  &-icon{
+    display: inline-block;
+    margin: 0 auto 1.5rem;
+  }
+  &-title{
+    text-transform: uppercase;
+    color: $primary-color;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+  @include maxWidth(1023px){
+    padding: 5rem 0;
+  }
+}

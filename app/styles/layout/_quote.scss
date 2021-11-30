@@ -1,0 +1,112 @@
+.quote{
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  background-color: $gray-color;
+  &-container{
+    @include flexbox(center, space-between);
+  }
+  &-arrow{
+    padding: 1rem 2rem;
+    font-size: 3rem;
+    color: $gray-dark-color;
+    cursor: pointer;
+  }
+  &-content{
+    margin-left: 5.5rem;
+    margin-right: 5.5rem;
+    @include flexbox(center, space-between);
+  }
+  &-icon{
+    width: 15rem;
+    height: 15rem;
+    padding: 4rem;
+    border: 2px solid $third-color;
+    margin-right: 6rem;
+  }
+  &-img{
+    @include size(21rem);
+    border-radius: 50%;
+    margin-right: 2.5rem;
+  }
+  &-info{
+    // @include flexbox(start, space-between, column);
+  }
+  &-desc{
+    font-size: 2.4rem;
+    font-family: $secondary-font;
+    font-weight: 300;
+    font-style: italic;
+    color: $text-color;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    // margin-bottom: 2.5rem;
+    @include textClamp(3);
+  }
+  &-author{
+    font-size: 2.4rem;
+    font-family: $third-font;
+    margin-top: auto;
+    position: relative;
+    padding-left: 7rem;
+    &::before{
+      content: "";
+      width: 6rem;
+      height: 0.3rem;
+      background-color: $primary-color;
+      @include absoluteCenter("top");
+      left: 0;
+    }
+  }
+  // slice slider 
+  .slick-initialized .slick-slide{
+    display: flex;
+  }
+  .slick-arrow{
+    border: 0;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    font-size: 3rem;
+    color: $gray-dark-color;
+    cursor: pointer;
+  }
+@include maxWidth(1023px){
+  &-img{
+    @include size(16rem);
+  }
+}
+  @include maxWidth(767px){
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    &-arrow{
+      display: none;
+    }
+    &-container{
+      display: block;
+    }
+    .slick-initialized .slick-slide{
+      display: block;
+    }
+    &-content{
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+    &-icon{
+      width: 8rem;
+      height: 8rem;
+      padding: 2rem;
+      margin: 0 auto 3rem;
+    }
+    &-img{
+      margin: 0 auto 2.5rem;
+      @include size(10rem)
+    }
+    &-desc{
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    &-author{
+      font-size: 2rem;
+    }
+  }
+}
